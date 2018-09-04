@@ -72,3 +72,7 @@
 .ui-slider-vertical .ui-slider-handle {
     transform: translateY(2px);
 }
+
+.leaflet-layer {
+    transition: opacity .25s linear;
+}

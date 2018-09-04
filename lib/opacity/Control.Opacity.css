@@ -1,51 +1,72 @@
-.higher_opacity_control {
-	background-image: url(images/higherOpacity.png);
-	width: 20px;
-    height: 20px;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    display: block;
-    padding: 3px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    box-shadow: 0 1px 7px rgba(0, 0, 0, 0.65);
-    cursor: auto;
-    text-align: center;
-    background-color: #ffffff;
-}
-
-.higher_opacity_control:hover {
-	background-color: #f4f4f4;
-}
-
-.lower_opacity_control {
-	background-image: url(images/lowerOpacity.png);
-	width: 20px;
-    height: 20px;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    display: block;
-    padding: 3px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    box-shadow: 0 1px 7px rgba(0, 0, 0, 0.65);
-    cursor: auto;
-    text-align: center;
-    background-color: #ffffff;
-}
-
-.lower_opacity_control:hover {
-	background-color: #f4f4f4;
-}
-
-.opacity_slider_control .ui-slider-range {
+.opacity-slider-control .ui-slider-range {
     background-image: none;
     background-color: #646464;
-    height: 200px;
 } 
 
-.ui-slider-horizontal {
-    width: 100px;
-};
+
+
+.opacity-slider-container {
+    background-color: #fff;
+    border-radius: 2px;
+}
+.opacity-slider-container.horizontal {
+    padding: 1.8em 1.2em .6em 1.2em;
+}
+.opacity-slider-container.vertical {
+    padding: 1.2em .6em 1.2em 1.8em;
+}
+
+
+.ui-slider-vertical .ui-slider-markers {
+    position: relative;
+    margin: .3em 0;
+    width: 100%;
+    height: calc(100% - .6em);
+    transform: rotate(180deg);
+}
+.ui-slider-horizontal .ui-slider-markers {
+    position: relative;
+    margin: 0 .3em;
+    width: calc(100% - .6em);
+    height: 100%;
+}
+
+
+.ui-slider .ui-slider-markers > .ui-slider-marker {
+    background-color: #909090;
+    position: absolute;
+    z-index: 2;
+}
+.ui-slider-vertical .ui-slider-markers > .ui-slider-marker {
+    width: 100%;
+    height: 1px;
+    left: initial !important;
+}
+.ui-slider-horizontal .ui-slider-markers > .ui-slider-marker {
+    width: 1px;
+    height: 100%;
+    top: initial !important;
+}
+
+
+.ui-slider-marker > .ui-slider-marker-text {
+    color: #323232;
+    position: absolute;
+    cursor: pointer;
+    user-select: none;
+}
+.ui-slider-horizontal .ui-slider-marker > .ui-slider-marker-text {
+    top: -1.6em;
+}
+.ui-slider-vertical .ui-slider-marker > .ui-slider-marker-text {
+    left: 1em;
+    text-orientation: sideways;
+    writing-mode: vertical-rl;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+    transform: translateX(-2px);
+}
+.ui-slider-vertical .ui-slider-handle {
+    transform: translateY(2px);
+}

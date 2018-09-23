@@ -15,7 +15,7 @@
     padding: 1.8em 1.2em .6em 1.2em;
 }
 .opacity-slider-container.vertical {
-    padding: 1.2em .6em 1.2em 1.8em;
+    padding: 1.2em .6em 1.2em 1.4em;
 }
 
 
@@ -24,7 +24,6 @@
     margin: .3em 0;
     width: 100%;
     height: calc(100% - .6em);
-    transform: rotate(180deg);
 }
 .ui-slider-horizontal .ui-slider-markers {
     position: relative;
@@ -47,7 +46,7 @@
 .ui-slider-horizontal .ui-slider-markers > .ui-slider-marker {
     width: 1px;
     height: 100%;
-    top: initial !important;
+    bottom: initial !important;
 }
 
 
@@ -59,11 +58,12 @@
 }
 .ui-slider-horizontal .ui-slider-marker > .ui-slider-marker-text {
     top: -1.6em;
+    transform: translateX(-50%);
 }
 .ui-slider-vertical .ui-slider-marker > .ui-slider-marker-text {
-    left: 1em;
-    text-orientation: sideways;
-    writing-mode: vertical-rl;
+    right: 1.6em;
+    transform: translateY(-50%);
+    white-space: nowrap;
 }
 
 .ui-slider-horizontal .ui-slider-handle {
@@ -73,6 +73,7 @@
     transform: translateY(2px);
 }
 
-.leaflet-layer {
+.leaflet-opacity-stack {
+    position: relative;
     transition: opacity .25s linear;
 }

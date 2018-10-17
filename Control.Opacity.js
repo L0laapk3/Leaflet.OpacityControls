@@ -139,6 +139,7 @@ L.Control.opacitySlider = L.Control.extend({
             if (above == below)
                 above = undefined;
 
+            var localValue = above && below ? (value - below.position) / (above.position - below.position) || 0 : 0;
 
             var pastVisibleLayer = false;
             _this.options.labels.forEach(label => {
@@ -150,7 +151,7 @@ L.Control.opacitySlider = L.Control.extend({
                 if (below == label) {
                     newValue = 1;
                 } else if (above == label) {
-                    newValue = (value - below.position) / (above.position - below.position);
+                    newValue = localValue;
                 } else {
                     newValue = 0;
                 }
@@ -180,7 +181,7 @@ L.Control.opacitySlider = L.Control.extend({
             });
 
             if (_this.options.onChange)
-                _this.options.onChange(value)
+                _this.options.onChange(value, localValue, below, above);
                 
             if (snap !== undefined)
                 return false;

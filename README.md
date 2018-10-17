@@ -25,7 +25,7 @@ The following options are allowed:
 `orientation`: `"vertical"` (default), `"horizontal"`: The orientiation of the slider.  
 `step`: `int`, `undefined` (default): With this, you can make the slider bar force certain steps.  
 `initial`: `int`, `0` (default): The inital value of the slider bar.  
-`onChange`: `function(newValue)`, `undefined` (default): If provided, will call the function with the new slider value.  
+`onChange`: `function(newValue, localValue, below, above)`, `undefined` (default): If provided, will call the function with the new slider value (0-1), local position between nearest two labels that have attached layers, the lower bounding label with a layers (readonly), and the upper bounding label with layers (readonly). If the slider lands exactly ontop of a label with a layer, above will be `undefined`.  
 `evenSpacing`: `true` (default for vertical), `false` (default for horizontal): Space the labels evenly? Or smart spacing?  
 `backdrop`: `"min"` (default), `"max"`, false: Defines if/where the dark colored area in the slider should appear.  
 `gravitate`: `int`, `0` (default): The default gravity value (in pixels) for labels on the slider. This makes it easier for the user to only select a single layer and save on bandwidth.  

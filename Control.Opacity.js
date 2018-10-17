@@ -108,7 +108,6 @@ L.Control.opacitySlider = L.Control.extend({
 
         container = $("<div class='opacity-slider-container " + this.options.orientation.toLowerCase() + "'>").append(this.options._opacitySliderDiv)[0];
 
-        return container;
 
 
         var lastValue;
@@ -129,6 +128,10 @@ L.Control.opacitySlider = L.Control.extend({
                 value = _this.options.labels[aboveI].position;
                 $(_this.options._opacitySliderDiv).slider("value", _this.options.labels[snap].position * _this.options.length);
             }
+            
+            if (value === lastValue)
+                return snap === undefined;
+            lastValue = value;
 
             var below, above;   
             while (belowI < _this.options.labels.length && (_this.options.labels[belowI].position > value || !_this.options.labels[belowI].layers)) belowI++;
@@ -186,5 +189,9 @@ L.Control.opacitySlider = L.Control.extend({
             if (snap !== undefined)
                 return false;
         }
+
+
+        
+        return container;
     }
 });

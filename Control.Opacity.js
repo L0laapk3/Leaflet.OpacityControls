@@ -255,7 +255,6 @@ L.Control.layerRadioSelector = L.Control.extend({
 
         this.options._radioSelectorDiv = $("<form>");
         
-        console.log(this.options.initial)
         this.options.labels.forEach((label, i) => {
             _this.options._radioSelectorDiv.append("<label>" + label.name + "<input type='radio' name='radio' value='" + i + "'" + (this.options.initial == i ? " checked" : "") + ">");
             label.layers.forEach(layer => {

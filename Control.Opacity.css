@@ -4,7 +4,21 @@
 } 
 
 
+.radio-selector {
+    padding: .6em .6em .3em .6em;
+}
+.radio-selector input {
+    vertical-align: text-bottom;
+}
+.radio-selector label {
+    display: block;
+    margin-left: auto;
+    width: fit-content;
+    height: 1.8em;
+    cursor: pointer;
+}
 
+.radio-selector,
 .opacity-slider-container {
     background-color: #fff;
     border-radius: 4px;
@@ -13,9 +27,17 @@
 }
 .opacity-slider-container.horizontal {
     padding: 1.8em 1.2em .6em 1.2em;
+    display: block;
+    width: fit-content;
 }
 .opacity-slider-container.vertical {
     padding: 1.2em .6em 1.2em 1.4em;
+}
+.radio-selector,
+.opacity-slider-container.vertical {
+    clear: none;
+    display: inline-block;
+    vertical-align: bottom;
 }
 
 /* test */
@@ -76,4 +98,14 @@
 .leaflet-opacity-stack {
     position: relative;
     transition: opacity .25s linear;
+}
+
+.leaflet-right .leaflet-control {
+    margin-left: auto;
+}
+.leaflet-right .leaflet-control {
+    float: none !important;
+}
+.leaflet-control-attribution {
+    width: fit-content;
 }

@@ -227,7 +227,6 @@ L.Control.layerRadioSelector = L.Control.extend({
         position: 'topright',
         initial: 0,
         onChange: undefined,
-        evenSpacing: undefined,
         labels: undefined //example: [ {name: "Sattelite", layers: [..]}, {name: "Drawings", layers: [..]} ]
     },
     onAdd: function (map) {
@@ -273,6 +272,8 @@ L.Control.layerRadioSelector = L.Control.extend({
                     updateLayerOpacities(map, layer, false);
                 })
             )
+            if (_this.options.onChange)
+                _this.options.onChange(newSelected);
         });
         
 

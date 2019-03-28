@@ -21,16 +21,34 @@ map.addControl(opacitySlider);
     
 The following options are allowed:
     
-`position`: `"topright"` (default), `"bottomright"`, `"topleft"`, `"bottomleft"`: The position of the slider.  
-`orientation`: `"vertical"` (default), `"horizontal"`: The orientiation of the slider.  
-`step`: `int`, `undefined` (default): With this, you can make the slider bar force certain steps.  
-`initial`: `int`, `0` (default): The inital value of the slider bar.  
-`onChange`: `function(newValue, localValue, below, above)`, `undefined` (default): If provided, will call the function with the new slider value (0-1), local position between nearest two labels that have attached layers, the lower bounding label with a layers (readonly), and the upper bounding label with layers (readonly). If the slider lands exactly ontop of a label with a layer, above will be `undefined`.  
-`evenSpacing`: `true` (default for vertical), `false` (default for horizontal): Space the labels evenly? Or smart spacing?  
-`backdrop`: `"min"` (default), `"max"`, false: Defines if/where the dark colored area in the slider should appear.  
-`gravitate`: `int`, `0` (default): The default gravity value (in pixels) for labels on the slider. This makes it easier for the user to only select a single layer and save on bandwidth.  
-`length`: `int`, `135` (default): The length of the slider.  
-`labels`: `Array` of labels to display on the slider. Each entry in the array must be an object containing the `position` and `name` keys (empty strings are allowed), and can optionally have the `layers` key, containing an array of leaflet layer objects.
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;option&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Possible Values (*Default value) | Description |
+| --- | --- | --- |
+| `position` | `"topright"`*, `"bottomright"`, `"topleft"`, `"bottomleft"` | The position of the slider. |
+| `orientation` | `"vertical"`*, `"horizontal"` | The orientiation of the slider. |
+| `step` | `int`, `undefined`* | With this, you can make the slider bar force certain steps. |
+| `initial` | `int`, `0`* | The inital value of the slider bar. |
+`onChange` | `function(newValue, localValue, below, above)`, `undefined`* | If provided, will call the function with the new slider value (0-1), local position between nearest two labels that have attached layers, the lower bounding label with a layers (readonly), and the upper bounding label with layers (readonly). If the slider lands exactly ontop of a label with a layer, above will be `undefined`. |
+| `evenSpacing` | `true`\* for vertical, `false`\* for horizontal | Space the labels evenly? Or smart spacing? |
+| `backdrop` | `"min"`*, `"max"`, `false` | Defines if/where the dark colored area in the slider should appear. |
+`gravitate` | `int`, `0`* | The default gravity value (in pixels) for labels on the slider. This makes it easier for the user to only select a single layer and save on | bandwidth. |
+| `length` | `int`, `135`* | The length of the slider (in pixels). This can later be changed using `setLength(newLength)` |
+| `labels` | `Array` | Labels to display on the slider. Each entry in the array must be an object containing the `position` and `name` keys (empty strings are allowed), and can optionally have the `layers` key, containing an array of leaflet layer objects. |
 
 For the slider to be functional, at least 2 array objects must have a valid labels key.
-   
+
+
+This mod also adds radio boxes to switch between layers that are compatible with the opacity sliders:
+
+```javascript
+var layerRadioSelector = new L.Control.layerRadioSelector(options);
+map.addControl(layerRadioSelector);
+```
+    
+The following options are allowed:
+    
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;option&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Possible Values (*Default value) | Description |
+| --- | --- | --- |
+| `position` | `"topright"`*, `"bottomright"`, `"topleft"`, `"bottomleft"` | The position of the radio selector. |
+| `initial` | `int`, `0`* | The inital value of the radio selector. |
+`onChange` | `function(newValue)`, `undefined`* | If provided, will call the function with the new radio selection index. |
+| `labels` | `Array` | Labels to choose from in the radio selection list. Each entry in the array must be an object containing the `name` keys (empty strings are allowed), and the `layers` key, containing an array of leaflet layer objects (Can be empty). |
